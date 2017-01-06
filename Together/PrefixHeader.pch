@@ -1,0 +1,25 @@
+//
+//  PrefixHeader.pch
+//  Together
+//
+//  Created by Yue Shen on 2017/1/4.
+//  Copyright © 2017年 Yue Shen. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <Masonry/Masonry.h>
+#import "HTTPService.h"
+#import "UIView+LZ.h"
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define BGCOLOR [UIColor colorWithRed:255/255.0 green:255/255.0 blue:250/255.0 alpha:1]
+#define BLUETHEME [UIColor colorWithRed:102/255.0 green:118/255.0 blue:255/255.0 alpha:1]
+#define serverURL @"http://30.97.17.153:8887"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
