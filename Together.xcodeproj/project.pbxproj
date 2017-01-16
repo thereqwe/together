@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		9C4E6F3B45A674B164ADA166 /* libPods-Together.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5A6B6E1516920B423CE62F /* libPods-Together.a */; };
 		B84A5D8B1E1CC697005554FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A5D8A1E1CC697005554FD /* main.m */; };
-		B84A5D8E1E1CC697005554FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A5D8D1E1CC697005554FD /* AppDelegate.m */; };
+		B84A5D8E1E1CC697005554FD /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = B84A5D8D1E1CC697005554FD /* AppDelegate.mm */; };
 		B84A5D911E1CC697005554FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A5D901E1CC697005554FD /* ViewController.m */; };
 		B84A5D941E1CC697005554FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84A5D921E1CC697005554FD /* Main.storyboard */; };
 		B84A5D961E1CC697005554FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84A5D951E1CC697005554FD /* Assets.xcassets */; };
 		B84A5D991E1CC697005554FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84A5D971E1CC697005554FD /* LaunchScreen.storyboard */; };
 		B84A5DA41E1CC869005554FD /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A5DA31E1CC869005554FD /* BaseNavigationController.m */; };
+		B8BBC9F41E27458900E63537 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BBC9F31E27458900E63537 /* libz.tbd */; };
+		B8C965931E273295004B23AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965921E273295004B23AD /* AVFoundation.framework */; };
+		B8C965951E27329C004B23AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965941E27329C004B23AD /* CoreGraphics.framework */; };
+		B8C965971E2732A3004B23AD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965961E2732A3004B23AD /* CoreImage.framework */; };
+		B8C965991E2732AC004B23AD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965981E2732AC004B23AD /* CoreMedia.framework */; };
+		B8C9659B1E2732B4004B23AD /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C9659A1E2732B4004B23AD /* CoreVideo.framework */; };
+		B8C9659D1E2732BD004B23AD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C9659C1E2732BD004B23AD /* OpenGLES.framework */; };
+		B8C9659F1E2732C6004B23AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C9659E1E2732C6004B23AD /* QuartzCore.framework */; };
+		B8C965A11E2732CE004B23AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965A01E2732CE004B23AD /* UIKit.framework */; };
 		B8EA697D1E1CDA630088B03B /* FMDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA696E1E1CDA630088B03B /* FMDBService.m */; };
 		B8EA697E1E1CDA630088B03B /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69701E1CDA630088B03B /* HTTPService.m */; };
 		B8EA69811E1CDA630088B03B /* NSDate+quick.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69761E1CDA630088B03B /* NSDate+quick.m */; };
@@ -29,7 +38,7 @@
 		B8EA699F1E1CE7AF0088B03B /* SYLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69961E1CE7AF0088B03B /* SYLMessageViewController.m */; };
 		B8EA69A01E1CE7AF0088B03B /* SYLSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69991E1CE7AF0088B03B /* SYLSetupViewController.m */; };
 		B8EA69A41E1E050F0088B03B /* SYLSearchMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69A31E1E050F0088B03B /* SYLSearchMapView.m */; };
-		B8EA69DD1E1F42390088B03B /* SYLARScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69DC1E1F42390088B03B /* SYLARScanViewController.m */; };
+		B8EA69DD1E1F42390088B03B /* SYLARScanViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8EA69DC1E1F42390088B03B /* SYLARScanViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +47,7 @@
 		B84A5D861E1CC697005554FD /* Together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84A5D8A1E1CC697005554FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B84A5D8C1E1CC697005554FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B84A5D8D1E1CC697005554FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B84A5D8D1E1CC697005554FD /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		B84A5D8F1E1CC697005554FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B84A5D901E1CC697005554FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B84A5D931E1CC697005554FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +56,16 @@
 		B84A5D9A1E1CC697005554FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B84A5DA21E1CC869005554FD /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		B84A5DA31E1CC869005554FD /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		B8BBC9F31E27458900E63537 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B8C965921E273295004B23AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B8C965941E27329C004B23AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B8C965961E2732A3004B23AD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B8C965981E2732AC004B23AD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B8C9659A1E2732B4004B23AD /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B8C9659C1E2732BD004B23AD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B8C9659E1E2732C6004B23AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B8C965A01E2732CE004B23AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B8C965A21E273415004B23AD /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = easyar.framework; path = "../../Downloads/EasyARSDK 3/package/iOS/easyar.framework"; sourceTree = "<group>"; };
 		B8EA696B1E1CCB650088B03B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B8EA696D1E1CDA630088B03B /* FMDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBService.h; sourceTree = "<group>"; };
 		B8EA696E1E1CDA630088B03B /* FMDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBService.m; sourceTree = "<group>"; };
@@ -76,7 +95,7 @@
 		B8EA69A21E1E050F0088B03B /* SYLSearchMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLSearchMapView.h; sourceTree = "<group>"; };
 		B8EA69A31E1E050F0088B03B /* SYLSearchMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLSearchMapView.m; sourceTree = "<group>"; };
 		B8EA69DB1E1F42390088B03B /* SYLARScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLARScanViewController.h; sourceTree = "<group>"; };
-		B8EA69DC1E1F42390088B03B /* SYLARScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLARScanViewController.m; sourceTree = "<group>"; };
+		B8EA69DC1E1F42390088B03B /* SYLARScanViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SYLARScanViewController.mm; sourceTree = "<group>"; };
 		F177077BCA4BE22929F8F58C /* Pods-Together.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Together.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Together/Pods-Together.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +104,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BBC9F41E27458900E63537 /* libz.tbd in Frameworks */,
+				B8C965A11E2732CE004B23AD /* UIKit.framework in Frameworks */,
+				B8C9659F1E2732C6004B23AD /* QuartzCore.framework in Frameworks */,
+				B8C9659D1E2732BD004B23AD /* OpenGLES.framework in Frameworks */,
+				B8C9659B1E2732B4004B23AD /* CoreVideo.framework in Frameworks */,
+				B8C965991E2732AC004B23AD /* CoreMedia.framework in Frameworks */,
+				B8C965971E2732A3004B23AD /* CoreImage.framework in Frameworks */,
+				B8C965951E27329C004B23AD /* CoreGraphics.framework in Frameworks */,
+				B8C965931E273295004B23AD /* AVFoundation.framework in Frameworks */,
 				9C4E6F3B45A674B164ADA166 /* libPods-Together.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +132,16 @@
 		8A5DEE92440E12F41F8F2DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8BBC9F31E27458900E63537 /* libz.tbd */,
+				B8C965A21E273415004B23AD /* easyar.framework */,
+				B8C965A01E2732CE004B23AD /* UIKit.framework */,
+				B8C9659E1E2732C6004B23AD /* QuartzCore.framework */,
+				B8C9659C1E2732BD004B23AD /* OpenGLES.framework */,
+				B8C9659A1E2732B4004B23AD /* CoreVideo.framework */,
+				B8C965981E2732AC004B23AD /* CoreMedia.framework */,
+				B8C965961E2732A3004B23AD /* CoreImage.framework */,
+				B8C965941E27329C004B23AD /* CoreGraphics.framework */,
+				B8C965921E273295004B23AD /* AVFoundation.framework */,
 				5E5A6B6E1516920B423CE62F /* libPods-Together.a */,
 			);
 			name = Frameworks;
@@ -137,7 +175,7 @@
 				B84A5DA11E1CC84A005554FD /* Img */,
 				B84A5DA01E1CC845005554FD /* Base */,
 				B84A5D8C1E1CC697005554FD /* AppDelegate.h */,
-				B84A5D8D1E1CC697005554FD /* AppDelegate.m */,
+				B84A5D8D1E1CC697005554FD /* AppDelegate.mm */,
 				B84A5D8F1E1CC697005554FD /* ViewController.h */,
 				B84A5D901E1CC697005554FD /* ViewController.m */,
 				B8EA696B1E1CCB650088B03B /* PrefixHeader.pch */,
@@ -250,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EA69DB1E1F42390088B03B /* SYLARScanViewController.h */,
-				B8EA69DC1E1F42390088B03B /* SYLARScanViewController.m */,
+				B8EA69DC1E1F42390088B03B /* SYLARScanViewController.mm */,
 			);
 			name = AR;
 			path = viewController/AR;
@@ -394,8 +432,8 @@
 				B8EA69A01E1CE7AF0088B03B /* SYLSetupViewController.m in Sources */,
 				B8EA69A41E1E050F0088B03B /* SYLSearchMapView.m in Sources */,
 				B84A5D911E1CC697005554FD /* ViewController.m in Sources */,
-				B84A5D8E1E1CC697005554FD /* AppDelegate.m in Sources */,
-				B8EA69DD1E1F42390088B03B /* SYLARScanViewController.m in Sources */,
+				B84A5D8E1E1CC697005554FD /* AppDelegate.mm in Sources */,
+				B8EA69DD1E1F42390088B03B /* SYLARScanViewController.mm in Sources */,
 				B84A5D8B1E1CC697005554FD /* main.m in Sources */,
 				B8EA699A1E1CE7AF0088B03B /* SYLActivityDetailViewController.m in Sources */,
 			);
@@ -519,6 +557,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H9EMJ6BDSU;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Together/viewController/AR",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Together/PrefixHeader.pch";
 				INFOPLIST_FILE = Together/Info.plist;
@@ -535,6 +578,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H9EMJ6BDSU;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Together/viewController/AR",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Together/PrefixHeader.pch";
 				INFOPLIST_FILE = Together/Info.plist;

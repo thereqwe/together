@@ -11,6 +11,7 @@
 #import "SYLActivityMapViewController.h"
 #import "SYLMessageViewController.h"
 #import "SYLSetupViewController.h"
+
 @interface AppDelegate ()
 {
     BaseNavigationController *navi;

@@ -10,7 +10,7 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-@interface SYLCreateActivityViewController ()<MAMapViewDelegate>
+@interface SYLCreateActivityViewController ()<MAMapViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
     UIScrollView *ui_scroll_create;
     UIView *ui_view_container;
@@ -29,8 +29,12 @@
     UILabel *ui_lb_info;
     UILabel *ui_lb_start_time;
     UILabel *ui_lb_start_corodinate;
+
 }
 @property (nonatomic,strong) MAMapView *mapView;
+@property (nonatomic,strong) NSMutableArray *array_category_all;
+@property (nonatomic,strong) NSMutableArray *array_category_level_0;
+@property (nonatomic,strong) NSMutableArray *array_category_level_1;
 @end
 
 @implementation SYLCreateActivityViewController
@@ -42,8 +46,56 @@
     [self setupData];
 }
 
+- (NSMutableArray *)array_category_all {
+    if(_array_category_all==nil){
+        _array_category_all = [NSMutableArray new];
+    }
+    return _array_category_all;
+}
+
+- (NSMutableArray *)array_category_level_0 {
+    if(_array_category_level_0==nil){
+        _array_category_level_0 = [NSMutableArray new];
+    }
+    return _array_category_level_0;
+}
+
+- (NSMutableArray *)array_category_level_1 {
+    if(_array_category_level_1==nil){
+        _array_category_level_1 = [NSMutableArray new];
+    }
+    return _array_category_level_1;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if(component==0){
+        [self.array_category_level_1 removeAllObjects];
+        NSString *idx = self.array_category_level_0[row][@"idx"];
+        for (NSDictionary *dict in self.array_category_all) {
+            if([dict[@"parent_idx"] isEqualToString:idx]){
+                [self.array_category_level_1 addObject:dict];
+            }
+        }
+        [ui_picker_category0 reloadComponent:1];
+    }
+}
+
 - (void)setupData {
-      //  [[HTTPService Instance] mobilePOST:<#(NSString *)#> path:<#(NSString *)#> parameters:<#(NSMutableDictionary *)#> success:<#^(AFHTTPRequestOperation *operation, id responseObject)success#> failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>]
+    [[HTTPService Instance] mobilePOST:serverURL path:@"/togetherResponder.php" parameters:[@{@"action":@"get_category"} mutableCopy] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            self.array_category_all = responseObject[@"data"];
+            for (NSDictionary *dict in self.array_category_all) {
+                if([dict[@"category_level"] isEqualToString:@"0"]){
+                    [self.array_category_level_0 addObject:dict];
+                }
+            }
+        [ui_picker_category0 setDataSource:self];
+        ui_picker_category0.delegate = self;
+        [ui_picker_category0 reloadAllComponents];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+        }];
+    NSLog(@"123");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +106,30 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if(component == 0){
+        return [self.array_category_level_0 count];
+    }else if(component == 1){
+        return [self.array_category_level_1 count];
+    }else{
+        return 0;
+    }
+}
+
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if(component==0){
+        return self.array_category_level_0[row][@"title"];
+    }else if (component==1){
+        return self.array_category_level_1[row][@"title"];
+    }else{
+        return @"error";
+    }
 }
 
 - (void)setupUI {
@@ -80,22 +156,25 @@
     }];
 
     ui_picker_category0 = [[UIPickerView alloc]init];
+    
     [ui_view_container addSubview:ui_picker_category0];
     [ui_picker_category0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ui_lb_category.mas_bottom).offset(8);
         make.left.mas_equalTo(8);
-        make.width.mas_equalTo(kScreenWidth/2-8);
-        make.height.mas_equalTo(44);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(66);
     }];
     
-    ui_picker_category1 = [[UIPickerView alloc]init];
-    [ui_view_container addSubview:ui_picker_category1];
-    [ui_picker_category1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ui_lb_category.mas_bottom).offset(8);
-        make.right.mas_equalTo(-8);
-        make.width.mas_equalTo(kScreenWidth/2-8);
-        make.height.mas_equalTo(44);
-    }];
+//    ui_picker_category1 = [[UIPickerView alloc]init];
+//    ui_picker_category1.delegate = self;
+//    ui_picker_category1.dataSource = self;
+//    [ui_view_container addSubview:ui_picker_category1];
+//    [ui_picker_category1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(ui_lb_category.mas_bottom).offset(8);
+//        make.right.mas_equalTo(-8);
+//        make.width.mas_equalTo(kScreenWidth/2-8);
+//        make.height.mas_equalTo(44);
+//    }];
     
     ui_lb_title = [UILabel new];
     [ui_view_container addSubview:ui_lb_title];
@@ -192,7 +271,7 @@
     
     ui_btn_confirm = [UIButton new];
     [ui_btn_confirm setBackgroundColor:BLUETHEME];
-    [ui_btn_confirm setTitle:@"确认完毕" forState:UIControlStateNormal];
+    [ui_btn_confirm setTitle:@"发起活动" forState:UIControlStateNormal];
     [ui_view_container addSubview:ui_btn_confirm];
     [ui_btn_confirm mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_mapView.mas_bottom).offset(30);

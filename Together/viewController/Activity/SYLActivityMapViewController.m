@@ -31,7 +31,7 @@ static char key;
     pointAnnotation.coordinate = CLLocationCoordinate2DMake(39.989631, 116.481018);
     pointAnnotation.title = @"方恒国际";
     pointAnnotation.subtitle = @"阜通东大街6号";
-    objc_setAssociatedObject(pointAnnotation, &key, @"方恒国际", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+   // objc_setAssociatedObject(pointAnnotation, &key, @"方恒国际", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [_mapView addAnnotation:pointAnnotation];
     
     
@@ -61,7 +61,7 @@ static char key;
         annotationView.draggable = YES;        //设置标注可以拖动，默认为NO
         annotationView.pinColor = MAPinAnnotationColorPurple;
         NSString * associatedObject = (NSString *)objc_getAssociatedObject(annotation , &key);
-         objc_setAssociatedObject(annotationView, &key, associatedObject, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    //     objc_setAssociatedObject(annotationView, &key, associatedObject, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         UITapGestureRecognizer *ges = [UITapGestureRecognizer new];
         [ges addTarget:self action:@selector(test:)];
         [annotationView.leftCalloutAccessoryView addGestureRecognizer:ges];
