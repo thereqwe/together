@@ -15,6 +15,8 @@
 		B84A5D961E1CC697005554FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84A5D951E1CC697005554FD /* Assets.xcassets */; };
 		B84A5D991E1CC697005554FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84A5D971E1CC697005554FD /* LaunchScreen.storyboard */; };
 		B84A5DA41E1CC869005554FD /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84A5DA31E1CC869005554FD /* BaseNavigationController.m */; };
+		B84C85401E2DFC1100E0C83C /* SYLMyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C853F1E2DFC1100E0C83C /* SYLMyActivityViewController.m */; };
+		B84C85431E2E149B00E0C83C /* SYLMyActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C85421E2E149B00E0C83C /* SYLMyActivityTableViewCell.m */; };
 		B8BBC9F41E27458900E63537 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BBC9F31E27458900E63537 /* libz.tbd */; };
 		B8C965931E273295004B23AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965921E273295004B23AD /* AVFoundation.framework */; };
 		B8C965951E27329C004B23AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C965941E27329C004B23AD /* CoreGraphics.framework */; };
@@ -56,6 +58,10 @@
 		B84A5D9A1E1CC697005554FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B84A5DA21E1CC869005554FD /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		B84A5DA31E1CC869005554FD /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		B84C853E1E2DFC1100E0C83C /* SYLMyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLMyActivityViewController.h; sourceTree = "<group>"; };
+		B84C853F1E2DFC1100E0C83C /* SYLMyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLMyActivityViewController.m; sourceTree = "<group>"; };
+		B84C85411E2E149B00E0C83C /* SYLMyActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLMyActivityTableViewCell.h; sourceTree = "<group>"; };
+		B84C85421E2E149B00E0C83C /* SYLMyActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLMyActivityTableViewCell.m; sourceTree = "<group>"; };
 		B8BBC9F31E27458900E63537 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B8C965921E273295004B23AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B8C965941E27329C004B23AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -271,6 +277,10 @@
 			children = (
 				B8EA69981E1CE7AF0088B03B /* SYLSetupViewController.h */,
 				B8EA69991E1CE7AF0088B03B /* SYLSetupViewController.m */,
+				B84C853E1E2DFC1100E0C83C /* SYLMyActivityViewController.h */,
+				B84C853F1E2DFC1100E0C83C /* SYLMyActivityViewController.m */,
+				B84C85411E2E149B00E0C83C /* SYLMyActivityTableViewCell.h */,
+				B84C85421E2E149B00E0C83C /* SYLMyActivityTableViewCell.m */,
 			);
 			path = setup;
 			sourceTree = "<group>";
@@ -430,10 +440,12 @@
 				B8EA699F1E1CE7AF0088B03B /* SYLMessageViewController.m in Sources */,
 				B8EA697E1E1CDA630088B03B /* HTTPService.m in Sources */,
 				B8EA69A01E1CE7AF0088B03B /* SYLSetupViewController.m in Sources */,
+				B84C85401E2DFC1100E0C83C /* SYLMyActivityViewController.m in Sources */,
 				B8EA69A41E1E050F0088B03B /* SYLSearchMapView.m in Sources */,
 				B84A5D911E1CC697005554FD /* ViewController.m in Sources */,
 				B84A5D8E1E1CC697005554FD /* AppDelegate.mm in Sources */,
 				B8EA69DD1E1F42390088B03B /* SYLARScanViewController.mm in Sources */,
+				B84C85431E2E149B00E0C83C /* SYLMyActivityTableViewCell.m in Sources */,
 				B84A5D8B1E1CC697005554FD /* main.m in Sources */,
 				B8EA699A1E1CE7AF0088B03B /* SYLActivityDetailViewController.m in Sources */,
 			);

@@ -9,6 +9,7 @@
 #import "SYLSetupViewController.h"
 #import "SYLCreateActivityViewController.h"
 #import "SYLARScanViewController.h"
+#import "SYLMyActivityViewController.m"
 @interface SYLSetupViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *ui_table_setup;
@@ -37,7 +38,7 @@
 
 - (NSArray *)array_setup {
     if(_array_setup==nil){
-        _array_setup = @[@"发起活动",@"AR扫描"];
+        _array_setup = @[@"发起活动",@"AR扫描",@"我发起的活动"];
     }
     return _array_setup;
 }
@@ -60,6 +61,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if(row==1){
         SYLARScanViewController *vc =  [SYLARScanViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if(row==2){
+        SYLMyActivityViewController *vc =  [SYLMyActivityViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

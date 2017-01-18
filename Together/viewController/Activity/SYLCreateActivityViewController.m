@@ -14,8 +14,8 @@
 {
     UIScrollView *ui_scroll_create;
     UIView *ui_view_container;
-    UIPickerView *ui_picker_category0;
-    UIPickerView *ui_picker_category1;
+    UIPickerView *ui_picker_category;
+    
     UITextField *ui_tf_title;
     UITextField *ui_tf_address;
     UITextView *ui_tv_info;
@@ -35,6 +35,8 @@
 @property (nonatomic,strong) NSMutableArray *array_category_all;
 @property (nonatomic,strong) NSMutableArray *array_category_level_0;
 @property (nonatomic,strong) NSMutableArray *array_category_level_1;
+@property (nonatomic,strong) NSNumber *lat;
+@property (nonatomic,strong) NSNumber *lng;
 @end
 
 @implementation SYLCreateActivityViewController
@@ -44,6 +46,20 @@
     // Do any additional setup after loading the view.
     [self setupUI];
     [self setupData];
+}
+
+- (NSNumber *)lat {
+    if(_lat==nil){
+        _lat = @0;
+    }
+    return _lat;
+}
+
+- (NSNumber *)lng {
+    if(_lng==nil){
+        _lng = @0;
+    }
+    return _lng;
 }
 
 - (NSMutableArray *)array_category_all {
@@ -76,7 +92,8 @@
                 [self.array_category_level_1 addObject:dict];
             }
         }
-        [ui_picker_category0 reloadComponent:1];
+        [ui_picker_category reloadComponent:1];
+        [ui_picker_category selectRow:0 inComponent:1 animated:NO];
     }
 }
 
@@ -88,10 +105,14 @@
                 if([dict[@"category_level"] isEqualToString:@"0"]){
                     [self.array_category_level_0 addObject:dict];
                 }
+                if([dict[@"category_level"] isEqualToString:@"1"]&&
+                   [dict[@"parent_idx"] isEqualToString:self.array_category_level_0[0][@"idx"]]){
+                    [self.array_category_level_1 addObject:dict];
+                }
             }
-        [ui_picker_category0 setDataSource:self];
-        ui_picker_category0.delegate = self;
-        [ui_picker_category0 reloadAllComponents];
+        [ui_picker_category setDataSource:self];
+        ui_picker_category.delegate = self;
+        [ui_picker_category reloadAllComponents];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@",error);
         }];
@@ -155,14 +176,14 @@
         make.top.left.mas_equalTo(8);
     }];
 
-    ui_picker_category0 = [[UIPickerView alloc]init];
+    ui_picker_category = [[UIPickerView alloc]init];
     
-    [ui_view_container addSubview:ui_picker_category0];
-    [ui_picker_category0 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [ui_view_container addSubview:ui_picker_category];
+    [ui_picker_category mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ui_lb_category.mas_bottom).offset(8);
         make.left.mas_equalTo(8);
         make.width.mas_equalTo(kScreenWidth);
-        make.height.mas_equalTo(66);
+        make.height.mas_equalTo(100);
     }];
     
 //    ui_picker_category1 = [[UIPickerView alloc]init];
@@ -180,11 +201,12 @@
     [ui_view_container addSubview:ui_lb_title];
     ui_lb_title.text = @"活动标题";
     [ui_lb_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ui_picker_category0.mas_bottom).offset(8);
+        make.top.equalTo(ui_picker_category.mas_bottom).offset(8);
         make.left.mas_equalTo(8);
     }];
     
     ui_tf_title = [UITextField new];
+    ui_tf_title.text = @"party happy";
     ui_tf_title.borderStyle = UITextBorderStyleRoundedRect;
     [ui_view_container addSubview:ui_tf_title];
     [ui_tf_title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -204,6 +226,7 @@
     }];
     
     ui_tf_address = [UITextField new];
+    ui_tf_address.text = @"红中路256号";
     ui_tf_address.borderStyle = UITextBorderStyleRoundedRect;
     [ui_view_container addSubview:ui_tf_address];
     [ui_tf_address mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -224,6 +247,7 @@
     
     ui_tv_info = [UITextView new];
     ui_tv_info.layer.borderWidth = 1;
+    ui_tv_info.text = @"一定要来哦";
     [ui_view_container addSubview:ui_tv_info];
     [ui_tv_info mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ui_lb_info.mas_bottom).offset(8);
@@ -271,6 +295,7 @@
     
     ui_btn_confirm = [UIButton new];
     [ui_btn_confirm setBackgroundColor:BLUETHEME];
+    [ui_btn_confirm addTarget:self action:@selector(confirm) forControlEvents:UIControlEventTouchUpInside];
     [ui_btn_confirm setTitle:@"发起活动" forState:UIControlStateNormal];
     [ui_view_container addSubview:ui_btn_confirm];
     [ui_btn_confirm mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -281,10 +306,13 @@
     }];
 }
 
+#pragma mark - amap delegate
 - (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate {
     MAPointAnnotation *pointAnnotation2 = [[MAPointAnnotation alloc] init];
     pointAnnotation2.coordinate = coordinate;
     pointAnnotation2.title = [NSString stringWithFormat:@"%f,%f",coordinate.latitude,coordinate.longitude];
+    self.lat = @(coordinate.latitude);
+    self.lng = @(coordinate.longitude);
     pointAnnotation2.subtitle = @"tap";
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapView addAnnotation:pointAnnotation2];
@@ -307,6 +335,20 @@
         return annotationView;
     }
     return nil;
+}
+
+
+- (void)confirm {
+    NSString *category_idx = self.array_category_level_1[ [ui_picker_category selectedRowInComponent:1]][@"idx"];
+    NSString *title = ui_tf_title.text;
+    NSString *address = ui_tf_address.text;
+    NSString *info = ui_tv_info.text;
+    NSString *start_time  = [NSString stringWithFormat:@"%f",[ui_dp_start_time.date timeIntervalSince1970]];
+    [[HTTPService Instance] mobilePOST:serverURL path:@"/togetherResponder.php" parameters:[@{@"action":@"create_activity",@"lng":self.lng,@"lat":self.lat,@"title":title,@"address":address,@"info":info,@"start_time":start_time,@"category_idx":category_idx} mutableCopy] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (instancetype)init
